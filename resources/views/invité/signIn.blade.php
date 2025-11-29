@@ -12,25 +12,31 @@
       <a class="text-3xl font-bold"  href="/">E-Market Dz</a>
       <p class="text-sm">Create an account it's simple and quick</p>
       <div class="bg-slate-300">
-          <form>
-   
+          <form method="post" action="/Sign-in">
+                @csrf
+                @if (session('add_client'))
+                      <div class="bg-green-500 text-white p-2 rounded mb-3">
+                         {{ session('add_client') }}
+                      </div>
+                @endif
+
                 <label class="block">
                     <span class="block text-sm font-bold text-slate-700">First name </span>
-                    <input type="text" class="peer p-2 text-black"/>
+                    <input type="text" name="firstName" class="peer p-2 text-black"/>
                 </label>   
                 <label>
    
                     <span class="block text-sm font-bold text-slate-700">Family Name</span>
-                    <input type="text" class="peer p-2  text-black"/>
+                    <input type="text" name="FamilyName" class="peer p-2  text-black"/>
                 </label>    
                 <label>
   
                     <span class="block text-sm font-bold text-slate-700">Email</span>
-                    <input type="email" class="peer p-2  text-black"/>
+                    <input type="email" name="email" class="peer p-2  text-black"/>
                 </label>    
                 <label for="">
                     <span class="block text-sm font-bold text-slate-700">password</span>
-                    <input type="password" class="peer p-2  text-black"/>
+                    <input type="password" name="password" class="peer p-2  text-black"/>
                   </label>
                   
                   <label>

@@ -8,25 +8,32 @@
 </head>
 <body class="bg-blue-950">
 
-    <div class="text-center text-white mt-20">
+<div class="text-center text-white mt-20">
       <a class="text-3xl font-bold" href="/">E-Market Dz</a>
       
       <div class="bg-slate-300">
-          <form> 
+          <form method="post" action="/login"> 
    
-              
+              @csrf
+              @if (session('error_login'))
+                      <div class="bg-red-500 text-white p-2 rounded mb-3">
+                         {{ session('error_login') }}
+                      </div>
+              @endif
+             
+   
                 <label>
   
                     <span class="block text-sm font-bold text-slate-700">Email</span>
-                    <input type="email" class="peer p-2  text-black"/>
+                    <input type="email" name="email" class="peer p-2  text-black"/>
                 </label>    
                 <label >
                     <span class="block text-sm font-bold text-slate-700">password</span>
-                    <input type="password" class="peer p-2  text-black"/>
+                    <input type="password" name="password" class="peer p-2  text-black"/>
                   </label>
                   
                   <label>
-                    <button class="rounded-null bg-sky-700 text-sm font-bold p-2"type="submit">log in</button>
+                    <button class="rounded-null bg-sky-700 text-sm font-bold p-2" type="submit" >log in</button>
                 
                    </label>
                    <label>

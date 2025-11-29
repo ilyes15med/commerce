@@ -16,7 +16,7 @@
             <a class="font-bold" href="/products">Products</a>
 
             <a class="font-bold" href="/about-us">About us</a>
-            <a class="font-bold">contact</a>
+         
           </div>
           <div class="space-x-12">
             <a class=" p-0.5 font-bold rounded-null bg-blue-600 active:bg-lime-500" href="/Sign-in">Sign in</a>
