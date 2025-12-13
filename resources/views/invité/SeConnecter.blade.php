@@ -12,7 +12,7 @@
       <a class="text-3xl font-bold" href="/">E-Market Dz</a>
       
       <div class="bg-slate-300">
-          <form method="post" action="/login"> 
+          <form method="post" action="/Se-connecter"> 
    
               @csrf
               @if (session('error_login'))
@@ -30,17 +30,17 @@
                 <label >
                     <span class="block text-sm font-bold text-slate-700">password</span>
                     <input type="password" name="password" class="peer p-2  text-black"/>
-                  </label>
+                </label>
                   
-                  <label>
+                <label>
                     <button class="rounded-null bg-sky-700 text-sm font-bold p-2" type="submit" >log in</button>
                 
-                   </label>
-                   <label>
+                </label>
+                <label>
                     <p class="text-black">if you don't have  an account</p>
                     <a class="rounded-null bg-green-500 text-sm font-bold p-1" href="/Sign-in"> Create a new account</a>
                 
-                   </label>
+                </label>
                   
           </form>
        </div>

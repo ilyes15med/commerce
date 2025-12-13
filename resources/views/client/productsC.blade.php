@@ -18,47 +18,52 @@
 </div>
 -->
 
-<div class="mt-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        
-                          <a href="/products/c/product/show" class="bg-white rounded-2xl shadow-md overflow-hidden active:bg-cyan-200">
-                             
-                                  
-                                   
-                                   
-                                    <div class="space-y-0.5">
-                                      
-                                    <img src="{{ asset('/assets/images/HP-250G8-1.png') }}" alt="pc" class="w-full h-64 md:h-full object-cover">
-     
-                                     
-                                       
-                                                <p class="p-0.5 text-2xl text-black line-clamp-3">
-                                                    Pc portable HP 250G8
-                                                 
-                                                </p> 
-                                                <p class="p-0.5 text-xl text-black line-clamp-3 text-bold">
-                                                238000.00 DZD
-                                                 
-                                                </p> 
-                                           
-                                     
-                                          
 
-                                                
-                               
-                                               
-                                                <p class="text-red-500 p-0.5">see more</p>
-                                    
-                                     
-                                    </div>
+<div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    @foreach ($produits as $produit )
+
+           
+   
+        
+          <a href="/products/c/product/show/{{$produit->id}}" class="bg-white rounded-2xl shadow-md overflow-hidden active:bg-cyan-200">
+             
+                  
+                   
+                   
+                    <div class="space-y-0.5">
+                      
+                                <img src="{{asset('storage/'.$produit->image)}}" alt="pc"  class="w-96 h-64 object-cover rounded-lg shadow">
+                   
+                     
+                       
+                                <p class="p-1 text-xl text-black line-clamp-3">
+                                    {{$produit->nameProduit}}
+                                 
+                                </p> 
+                                <p class="p-1 text-sm text-black line-clamp-3 text-bold">
+                                    {{$produit->price}} DZD
+                                 
+                                </p> 
+                           
+                     
+                          
 
                                 
-                                     
-                                 
-                             
-                            </a>    
-                        
+               
+                               
+                                <p class="text-red-500 p-1">see more</p>
+                    
+                     
+                    </div>
+
+                
+                     
+                 
+             
+            </a>    
+    @endforeach    
 </div>
-        
+
 
 
 

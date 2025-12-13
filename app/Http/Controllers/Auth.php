@@ -22,7 +22,7 @@ class Auth extends Controller
        
         $req->session()->put('email_admin',$email);
           //return view('admin.addProduct');
-          return redirect('/admin/addProduct');
+          return redirect('/admin/products');
           
        }else if($client && Hash::check($password,$client->password)){
         $req->session()->put('email_client',$email);

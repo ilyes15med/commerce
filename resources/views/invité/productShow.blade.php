@@ -6,15 +6,24 @@
         
         <!-- Image -->
         <div class="md:w-1/2">
-            <img src="{{ asset('/assets/images/HP-250G8-1.png') }}" alt="pc" class="w-full h-64 md:h-full object-cover">
+            
+            <img src="{{ asset('storage/'.$produit->image) }}" alt="{{ $produit->nameProduit }}" class="min-w-full min-h-24 object-cover rounded-lg shadow">
+                   
+                          
         </div>
 
         <!-- Details -->
         <div class="md:w-1/2 p-6 flex flex-col justify-between">
             <div>
-                <h2 class="text-2xl font-bold mb-2">PC Portable</h2>
-                <p class="text-xl text-gray-800 mb-4">238,000.00 DZD</p>
-                <p class="text-gray-600 mb-4">Description du produit ici. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h2 class="text-2xl font-bold mb-2">
+                    {{$produit->nameProduit}}
+                </h2>
+                <p class="text-xl text-gray-800 mb-4">
+                    {{$produit->price}} DZD
+                </p>
+                <p class="text-gray-600 mb-4">
+                    {{$produit->description}} 
+                </p>
             </div>
 
             <div class="flex flex-col space-y-4">

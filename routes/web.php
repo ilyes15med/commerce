@@ -3,32 +3,29 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthClientController;
 use App\Http\Controllers\Auth;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\InvoiceController;
 
 //invité
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/products', function () {
-    return view('invité.products');
-});
+Route::get('/products',[ProductController::class,'product_invité'] );
 Route::get('/about-us', function () {
     return view('invité.about-us');
 });
 
-Route::get('/product/show', function () {
-    return view('invité.productShow');
-});
+Route::get('/product/show/{id}',[ProductController::class,'InvitéindexProduct']);
 
 
 
 //login:
 //admin,client:
+
 Route::get('/Se-connecter', function () {
     return view('invité.SeConnecter');
 });
-Route::post('/login',[Auth::class,'login']);
-//Route::post('/login',[Auth::class,'admin']);
-
+Route::post('/Se-connecter',[Auth::class,'login']);
 
 Route::get('/admin/addProduct', function () {
     return view('admin.addProduct');
@@ -44,20 +41,16 @@ Route::post('/Sign-in',[Auth::class,'client']);
 
 
 
+Route::get('/products/c',[ProductController::class,'product_client']);
+Route::get('/products/c/product/show/{id}',[ProductController::class,'ClientindexProduct']);
+//buy
+Route::post('/products/c/product/show/{id}/bye',[ProductController::class,'acheter']);
 
-Route::get('/products/c', function () {
-    return view('client.productsC');
-});
-Route::get('/products/c/product/show', function () {
-    return view('client.productshowC');
-});
 Route::get('/about-us/c', function () {
     return view('client.about-usCl');
 });
 
-Route::get('/invoice/c', function () {
-    return view('client.invoiceC');
-});
+Route::get('/invoice/c',[InvoiceController::class,'invoices']);
 Route::get('/contact', function () {
     return view('client.contact');
 });
@@ -70,9 +63,7 @@ Route::get('/admin', function () {
 
 
 
-Route::get('/admin/addProductShow', function () {
-    return view('admin.addProductShow');
-});
+
 
 Route::get('/admin/invoices', function () {
     return view('admin.invoice');
@@ -81,3 +72,12 @@ Route::get('/admin/invoices', function () {
 Route::get('/admin/message', function () {
     return view('admin.messages');
 });
+//product de admin
+Route::get('/admin/products',[ProductController::class,'showproduct'] )->name('products');
+Route::get('/admin/addProductShow', function () {
+    return view('admin.addProductShow');
+});
+Route::post('/admin/product',[ProductController::class,'ajouterProduit'])->name('add.product');
+
+
+

@@ -22,7 +22,7 @@
             <ul class="space-y-3">
                 
                 <li>
-                    <a href="/admin/addProduct" class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/20 transition">
+                    <a href="/admin/products" class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/20 transition">
                         <i data-lucide="plus-circle" class="w-5 h-5"></i>
                         Add Product
                     </a>
