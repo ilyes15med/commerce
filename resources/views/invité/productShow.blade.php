@@ -30,11 +30,13 @@
                 <!-- Number input -->
                 <div class="flex items-center space-x-2">
                     <label for="quantity" class="font-medium">Quantity:</label>
-                    <input type="number" id="quantity" min="1" max="70" value="1" class="w-20 p-2 border rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <p>
+                        {{$produit->number}} 
+                    </p>
                 </div>
 
                 <!-- Button -->
-                <a href="/Se-connecter" class="text-center bg-black text-white rounded-lg py-2 px-4 hover:bg-gray-800 transition-colors">Buy</a>
+               <!-- <a href="/Se-connecter" class="text-center bg-black text-white rounded-lg py-2 px-4 hover:bg-gray-800 transition-colors">Buy</a>-->
             </div>
         </div>
     </div>

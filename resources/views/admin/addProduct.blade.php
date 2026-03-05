@@ -29,7 +29,7 @@
 
             <!-- Table Body -->
             @if($produits->isEmpty())
-              <p class="text-center text-gray-500">Aucun post trouvé.</p>
+              <p class="text-center text-gray-500">Aucun product .</p>
             @else
             <tbody class="divide-y divide-gray-200">
                 @foreach($produits as $produit)

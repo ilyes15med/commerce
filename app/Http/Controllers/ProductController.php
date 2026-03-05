@@ -67,11 +67,10 @@ class ProductController extends Controller
       
     }
     //client
-    public function product_client()  {
+    public function product_client(){
       $produits = DB::table('produits')->where('disponible',true)->get();
       return view('client.productsC',['produits'=>$produits]);
-
-      
+ 
     }
     
     public function ClientindexProduct($id){
@@ -114,6 +113,7 @@ class ProductController extends Controller
         ]);
         
       }
+
             
 
      
@@ -121,5 +121,18 @@ class ProductController extends Controller
       return redirect('/invoice/c');
 
     }
+    public function search(Request $request){
+     $wordSearch= $request->bare_search;
+     $produits=  DB::table('produits')->where('nameProduit','LIKE',"%{$wordSearch}%")->get();
+     return view('client.productsC',['produits'=>$produits]);
+
+    }
+    public function invite_search(Request $request){
+      $wordSearch= $request->bare_search;
+    $produits=  DB::table('produits')->where('nameProduit','LIKE',"%{$wordSearch}%")->get();
+      return view('invité.products',['produits'=>$produits]);
+ 
+     }
+    
 
 }

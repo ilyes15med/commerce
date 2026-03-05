@@ -3,7 +3,7 @@
 
 <div class="flex space-x-1 grid grid-cols-1 gap-6"> 
    
-    @foreach ($invoices as $invoice )
+    
        
    
     <div class="p-2 bg-amber-300">
@@ -16,12 +16,10 @@
             <p>quantity : {{$invoice->quantity}}</p>
             <p>price :{{$invoice->prix}}</p>
             <p>produit : {{$invoice->product_name}}</p>
-            
-            <a href="/invoice/c/{{$invoice->idFacture}}/produit/{{$invoice->produits_id}}/delete" class="p-1 bg-red-600 hover:bg-red-700">cancel</a>
 
-            <a href="/invoice/c/{{$invoice->idFacture}}/view" class="p-1 bg-amber-500 hover:bg-amber-700">view</a>
+            <a href="/invoice/pdf/{{$invoice->idFacture}}" class="p-1 bg-sky-700 hover:bg-sky-800">print</a>
+          
             
-         
     
         </div>
        
@@ -30,7 +28,7 @@
 
 
     </div>
-    @endforeach
+  
  
 </div>
 

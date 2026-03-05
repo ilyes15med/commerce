@@ -11,6 +11,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/products',[ProductController::class,'product_invité'] );
+Route::get('/products/search',[ProductController::class,'invite_search'] );
 Route::get('/about-us', function () {
     return view('invité.about-us');
 });
@@ -40,17 +41,23 @@ Route::post('/Sign-in',[Auth::class,'client']);
 //login_client
 
 
-
+Route::get('/products/c/product/search',[ProductController::class,'search']);
 Route::get('/products/c',[ProductController::class,'product_client']);
 Route::get('/products/c/product/show/{id}',[ProductController::class,'ClientindexProduct']);
 //buy
 Route::post('/products/c/product/show/{id}/bye',[ProductController::class,'acheter']);
+
 
 Route::get('/about-us/c', function () {
     return view('client.about-usCl');
 });
 
 Route::get('/invoice/c',[InvoiceController::class,'invoices']);
+Route::get('/invoice/c/{idF}/produit/{idP}/delete',[InvoiceController::class,'delete']);
+
+Route::get('/invoice/c/{id}/view',[InvoiceController::class,'view']);
+Route::get('/invoice/pdf/{id}', [InvoiceController::class, 'generatePDF']);
+
 Route::get('/contact', function () {
     return view('client.contact');
 });
@@ -65,9 +72,8 @@ Route::get('/admin', function () {
 
 
 
-Route::get('/admin/invoices', function () {
-    return view('admin.invoice');
-});
+Route::get('/admin/invoices',[InvoiceController::class,'invoices_Admin']);
+Route::get('/admin/invoice/{idF}/produit/{idP}/delete',[InvoiceController::class,'delete_admin']);
 
 Route::get('/admin/message', function () {
     return view('admin.messages');
